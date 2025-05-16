@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Создание подписи</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="header">
+        <img src="img/logo.png" alt="Логотип">
+        <h2>Создание подписи</h2>
+    </div>
+
+    <div class="input-container">
+        <div class="form__group field">
+            <input type="text" class="form__field" placeholder="Номер офиса" name="office" id="office" required />
+            <label for="office" class="form__label">Номер офиса:</label>
+        </div>
+
+        <div class="form__group field">
+            <input type="text" class="form__field" placeholder="Добавочный номер" name="extension" id="extension" required />
+            <label for="extension" class="form__label">Добавочный номер:</label>
+        </div>
+
+        <div class="form__group checkbox-group">
+            <div class="checkbox-wrapper-7">
+                <input class="tgl tgl-ios" id="showMobile" type="checkbox" />
+                <label class="tgl-btn" for="showMobile"></label>
+            </div>
+            <label class="checkbox-label" for="showMobile">Добавить номер мобильного телефона</label>
+        </div>
+
+        <div class="form__group field" id="mobileGroup">
+            <input type="text" class="form__field" placeholder="Мобильный телефон" name="mobile" id="mobile" />
+            <label for="mobile" class="form__label">Мобильный телефон:</label>
+        </div>
+
+        <div class="form__group field">
+            <input type="email" class="form__field" placeholder="Email" name="email" id="email" required />
+            <label for="email" class="form__label">Email:</label>
+        </div>
+    </div>
+
+    <button class="button">Создать подпись</button>
+
+    <div id="signature-container" class="signature-container"></div>
+    <button id="copyButton" class="button" style="display: none; margin-top: 20px;">Копировать HTML</button>
+
+    <div class="arrow bounce"></div>
+
+    <script src="scripts/script.js"></script>
+</body>
+</html>
