@@ -1,54 +1,75 @@
+<!-- Основной HTML-документ для страницы создания подписи -->
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+    <!-- Устанавливаем кодировку UTF-8 для корректного отображения текста -->
     <meta charset="UTF-8">
+    <!-- Адаптивный дизайн: страница подстраивается под размер экрана -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Заголовок страницы, отображаемый во вкладке браузера -->
     <title>Создание подписи</title>
+    <!-- Подключение CSS-стилей из файла styles.css -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    <!-- Контейнер заголовка с логотипом и текстом -->
     <div class="header">
+        <!-- Логотип компании, отображается слева от заголовка -->
         <img src="img/logo.png" alt="Логотип">
+        <!-- Заголовок страницы -->
         <h2>Создание подписи</h2>
     </div>
 
+    <!-- Контейнер для полей ввода данных подписи -->
     <div class="input-container">
-        <div class="form__group field">
-            <input type="text" class="form__field" placeholder="Номер офиса" name="office" id="office" required />
+        <!-- Поле для ввода номера офиса -->
+        <div class="form__group">
+            <!-- Метка для поля ввода -->
             <label for="office" class="form__label">Номер офиса:</label>
+            <!-- Поле ввода номера офиса -->
+            <input type="text" class="form__field" id="office" placeholder="Номер офиса">
         </div>
 
-        <div class="form__group field">
-            <input type="text" class="form__field" placeholder="Добавочный номер" name="extension" id="extension" required />
+        <!-- Поле для ввода добавочного номера телефона -->
+        <div class="form__group">
             <label for="extension" class="form__label">Добавочный номер:</label>
+            <input type="text" class="form__field" id="extension" placeholder="Добавочный номер">
         </div>
 
-        <div class="form__group checkbox-group">
-            <div class="checkbox-wrapper-7">
-                <input class="tgl tgl-ios" id="showMobile" type="checkbox" />
-                <label class="tgl-btn" for="showMobile"></label>
-            </div>
-            <label class="checkbox-label" for="showMobile">Добавить номер мобильного телефона</label>
+        <!-- Группа для чекбокса и поля мобильного телефона -->
+        <div class="checkbox-group">
+            <!-- Чекбокс для включения/выключения поля мобильного телефона -->
+            <label class="checkbox-wrapper-7">
+                <input type="checkbox" class="tgl tgl-ios" id="showMobile">
+                <span class="tgl-btn"></span>
+            </label>
+            <!-- Текст, описывающий назначение чекбокса -->
+            <label for="showMobile" class="checkbox-label">Добавить номер мобильного телефона</label>
         </div>
 
-        <div class="form__group field" id="mobileGroup">
-            <input type="text" class="form__field" placeholder="Мобильный телефон" name="mobile" id="mobile" />
+        <!-- Поле для ввода мобильного телефона (скрыто по умолчанию) -->
+        <div class="form__group hidden" id="mobileGroup">
             <label for="mobile" class="form__label">Мобильный телефон:</label>
+            <input type="text" class="form__field" id="mobile" placeholder="Мобильный телефон">
         </div>
 
-        <div class="form__group field">
-            <input type="email" class="form__field" placeholder="Email" name="email" id="email" required />
+        <!-- Поле для ввода email -->
+        <div class="form__group">
             <label for="email" class="form__label">Email:</label>
+            <input type="email" class="form__field" id="email" placeholder="Email">
         </div>
     </div>
 
+    <!-- Кнопка для генерации подписи -->
     <button class="button">Создать подпись</button>
 
+    <!-- Контейнер для отображения сгенерированной подписи -->
     <div id="signature-container" class="signature-container"></div>
-    <button id="copyButton" class="button" style="display: none; margin-top: 20px;">Копировать HTML</button>
+    
+    <!-- Кнопка для копирования HTML-кода подписи (скрыта по умолчанию) -->
+    <button id="copyButton" class="button" style="display: none;">Копировать подпись</button>
 
-    <div class="arrow bounce"></div>
-
+    <!-- Подключение JavaScript для обработки логики -->
     <script src="scripts/script.js"></script>
 </body>
 </html>
