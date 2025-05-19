@@ -11,7 +11,9 @@ IMAGE_NAME="tsgn-gen"
 PORT="8181"
 
 # Git репозиторий
-GITREP="https://github.com/dfyzicka/tSiGen.git"
+GITREP="https://github.com/dfyzicka/t$FOLDER.git"
+#папка репы
+FOLDER="t$FOLDER"
 
 # Функция для вывода сообщений
 log() {
@@ -32,12 +34,12 @@ command -v git >/dev/null 2>&1 || error "Git не установлен. Уста
 log "Переход в домашнюю директорию..."
 cd ~ || error "Не удалось перейти в домашнюю директорию"
 
-# 2. Удаляем папку sigen, если она существует
-log "Удаление папки sigen..."
-if [ -d "sigen" ]; then
-    rm -rf sigen || error "Не удалось удалить папку sigen"
+# 2. Удаляем папку $FOLDER, если она существует
+log "Удаление папки $FOLDER..."
+if [ -d "$FOLDER" ]; then
+    rm -rf $FOLDER || error "Не удалось удалить папку $FOLDER"
 else
-    log "Папка sigen не существует, пропускаем удаление"
+    log "Папка $FOLDER не существует, пропускаем удаление"
 fi
 
 # 3. Останавливаем и удаляем контейнер signature-container, если он существует
@@ -63,9 +65,9 @@ fi
 log "Клонирование репозитория с GitHub..."
 git clone $GITREP || error "Не удалось клонировать репозиторий"
 
-# 6. Переходим в папку sigen
-log "Переход в папку sigen..."
-cd sigen || error "Не удалось перейти в папку sigen"
+# 6. Переходим в папку $FOLDER
+log "Переход в папку $FOLDER..."
+cd $FOLDER || error "Не удалось перейти в папку $FOLDER"
 
 # 7. Сборка Docker-образа и запуск контейнера
 log "Сборка Docker-образа $IMAGE_NAME..."
