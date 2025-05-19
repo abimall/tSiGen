@@ -1,136 +1,215 @@
-/* Подключаем шрифт Rubik */
+/* Импортируем Rubik 500 — потому что тонкий текст слишком хрупкий для жизни */
 @import url('https://fonts.googleapis.com/css?family=Rubik:500');
 
-/* Стили для всей страницы */
+/* Глобальная style для всего body — flex всем, кто не ленится */
 body {
-    font-family: Arial, sans-serif;
+    font-family: Arial, sans-serif; /* Фоллбэк на случай, если Google Fonts сдох */
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    background-color: #CCD1D9;
+    flex-direction: column; /* Всё вертикально, как у меня in pants */
+    align-items: center; /* Центруем, потому что симметрия — это красиво */
+    padding: 20px; /* Чтобы не прилипало к краям, как таракан к пицце */
+    background-color: #CCD1D9; /* Цвет уныния? Нет, просто серый. */
+    min-height: 100vh; /* Гарантируем, что не будет жалкого обрубка на экране */
+    position: relative; /* Позиционирование для абсолютных элементов, типа стрелочки */
 }
 
-/* Стили для контейнера заголовка */
+/* Хедер (Купил мужик шляпу а ему какраз) */
 .header {
+    /* Горизонтальное выравнивание логотипа и заголовка */
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
+    /* Отступ снизу */
+    margin-bottom: 20px; /* Не лепим заголовок к лого, дышим ровно */
 }
 
+/* Стили для изображения логотипа в заголовке */
 .header img {
+    /* Размеры логотипа */
     width: 171px;
     height: 88px;
+    /* Отступ справа от логотипа */
     margin-right: 15px;
 }
 
+/* Стили для текста заголовка */
 .header h2 {
+    /* Убираем внешние отступы */
     margin: 0;
+    /* Размер шрифта */
     font-size: 24px;
+    /* Цвет текста */
     color: #FF6200;
+    /* Используем кубик Rubik */
     font-family: 'Rubik', sans-serif;
+    /* Вес шрифта */
     font-weight: 500;
 }
 
-/* Стили для контейнера с полями ввода */
+/* Контейнер для ввода — собрали всё в одну кучу */
 .input-container {
+    /* Вертикальное расположение элементов */
     display: flex;
     flex-direction: column;
+    /* Центрирование содержимого */
     align-items: center;
+    /* отступ между элементами — без него всё склеится */
     gap: 15px;
+    /* Отступ снизу */
     margin-bottom: 20px;
 }
 
+/* Стили для группы элементов формы (поле ввода + метка) */
 .form__group {
+    /* Относительное позиционирование для метки */
     position: relative;
+    /* Внутренние отступы */
     padding: 15px 0 0;
+    /* Отступ сверху */
     margin-top: 10px;
+    /* Ширина группы */
     width: 250px;
+    /* Горизонтальное выравнивание элементов */
     display: flex;
     align-items: center;
+    /* Отступ между элементами */
     gap: 8px;
-    flex-wrap: nowrap;
+    /* Запрет переноса элементов на новую строку */
+    flex-wrap: nowrap; /* Не даём им убегать друг от друга */
 }
 
+/* Отдельный блок под чекбокс — потому что это "особенный" ребёнок */
 .checkbox-group {
+    /* Отступы сверху и снизу */
     margin: 20px 0;
 }
 
+/* Стили для полей ввода */
 .form__field {
+    /* Шрифт для полей ввода */
     font-family: 'Rubik', sans-serif;
+    /* Поле занимает всю ширину контейнера */
     width: 100%;
+    /* Убираем стандартную рамку */
     border: 0;
+    /* Добавляем нижнюю границу */
     border-bottom: 2px solid #9b9b9b;
+    /* Убираем обводку при фокусе */
     outline: 0;
+    /* Размер шрифта */
     font-size: 0.97rem;
+    /* Цвет текста */
     color: #333;
+    /* Внутренние отступы */
     padding: 7px 0;
+    /* Прозрачный фон */
     background: transparent;
-    transition: border-color 0.2s;
+    /* Плавное изменение цвета границы */
+    transition: border-color 0.2s; /* Движуха при фокусе */
 }
 
+/* Стили для placeholder в поле ввода */
 .form__field::placeholder {
+    /* Placeholder — невидимка, потому что будет заменён меткой */
     color: transparent;
 }
 
+/* Стили для метки, когда placeholder виден */
 .form__field:placeholder-shown ~ .form__label {
+    /* Размер шрифта метки */
     font-size: 0.97rem;
+    /* Курсор как для текста */
     cursor: text;
+    /* Позиция метки */
     top: 20px;
 }
 
+/* Стили для метки поля ввода */
 .form__label {
+    /* Абсолютное позиционирование */
     position: absolute;
+    /* Позиция сверху */
     top: 0;
+    /* Блочный элемент */
     display: block;
+    /* Плавный переход для анимации */
     transition: 0.2s;
+    /* Размер шрифта */
     font-size: 0.75rem;
+    /* Цвет текста */
     color: #333;
+    /* Шрифт Rubik */
     font-family: 'Rubik', sans-serif;
 }
 
+/* Стили для метки чекбокса */
 .checkbox-label {
+    /* Шрифт Rubik */
     font-family: 'Rubik', sans-serif;
+    /* Размер шрифта */
     font-size: 0.97rem;
+    /* Цвет текста */
     color: #333;
+    /* Убираем отступы */
     margin: 0;
+    /* Высота строки */
     line-height: 1;
+    /* Статичное позиционирование */
     position: static;
+    /* Сбрасываем верхнюю позицию */
     top: auto;
+    /* Линейный элемент */
     display: inline;
 }
 
+/* Стили для поля ввода при фокусе */
 .form__field:focus {
+    /* Стили для метки при фокусе */
     ~ .form__label {
+        /* Абсолютное позиционирование */
         position: absolute;
+        /* Позиция сверху */
         top: 0;
+        /* Блочный элемент */
         display: block;
+        /* Плавный переход */
         transition: 0.2s;
+        /* Размер шрифта */
         font-size: 0.75rem;
+        /* Цвет текста */
         color: #FF6200;
+        /* Жирный шрифт */
         font-weight: 700;
     }
+    /* Отступ снизу */
     padding-bottom: 6px;
+    /* Толщина границы */
     border-width: 3px;
+    /* Градиентная граница */
     border-image: linear-gradient(to right, #FF6200, #e65c00);
     border-image-slice: 1;
 }
 
+/* Убираем тень для обязательных или некорректных полей */
+
 .form__field:required,
 .form__field:invalid {
-    box-shadow: none;
+    box-shadow: none; /* Required и invalid не кидаются тенями — нам хватает позора */
 }
 
+/* Стили для контейнера чекбокса */
 .checkbox-wrapper-7 {
+    /* Горизонтальное и вертикальное центрирование */
     display: inline-flex;
     align-items: center;
     justify-content: center;
 }
 
+/* Скрываем стандартный чекбокс */
 .checkbox-wrapper-7 .tgl {
     display: none;
 }
 
+/* Настройка box-sizing для всех элементов чекбокса */
 .checkbox-wrapper-7 .tgl,
 .checkbox-wrapper-7 .tgl:after,
 .checkbox-wrapper-7 .tgl:before,
@@ -141,6 +220,7 @@ body {
     box-sizing: border-box;
 }
 
+/* Убираем выделение текста для чекбокса */
 .checkbox-wrapper-7 .tgl::-moz-selection,
 .checkbox-wrapper-7 .tgl:after::-moz-selection,
 .checkbox-wrapper-7 .tgl:before::-moz-selection,
@@ -158,149 +238,219 @@ body {
     background: none;
 }
 
+/* Стили для кнопки чекбокса */
 .checkbox-wrapper-7 .tgl + .tgl-btn {
+    /* Убираем обводку */
     outline: 0;
+    /* Блочный элемент */
     display: block;
+    /* Размеры кнопки */
     width: 2.4em;
     height: 1.2em;
+    /* Относительное позиционирование */
     position: relative;
+    /* Курсор указателя */
     cursor: pointer;
+    /* Запрет выделения текста */
     -webkit-user-select: none;
        -moz-user-select: none;
         -ms-user-select: none;
             user-select: none;
 }
 
+/* Стили для псевдоэлементов кнопки чекбокса */
 .checkbox-wrapper-7 .tgl + .tgl-btn:after,
 .checkbox-wrapper-7 .tgl + .tgl-btn:before {
+    /* Относительное позиционирование */
     position: relative;
+    /* Блочный элемент */
     display: block;
+    /* Пустое содержимое */
     content: "";
+    /* Ширина 50% от контейнера */
     width: 50%;
+    /* Полная высота */
     height: 100%;
 }
 
+/* Позиция псевдоэлемента after */
 .checkbox-wrapper-7 .tgl + .tgl-btn:after {
     left: 0;
 }
 
+/* Скрываем псевдоэлемент before */
 .checkbox-wrapper-7 .tgl + .tgl-btn:before {
     display: none;
 }
 
+/* Позиция псевдоэлемента after при активном чекбоксе */
 .checkbox-wrapper-7 .tgl:checked + .tgl-btn:after {
     left: 50%;
 }
 
+/* Стили для iOS-стиля чекбокса */
 .checkbox-wrapper-7 .tgl-ios + .tgl-btn {
+    /* Цвет фона */
     background: #fbfbfb;
+    /* Скругленные углы */
     border-radius: 1.2em;
+    /* Внутренний отступ */
     padding: 1.2px;
+    /* Плавный переход */
     transition: all 0.4s ease;
+    /* Рамка */
     border: 1px solid #e8eae9;
 }
 
+/* Стили для псевдоэлемента after в iOS-чекбоксе */
 .checkbox-wrapper-7 .tgl-ios + .tgl-btn:after {
+    /* Скругленные углы */
     border-radius: 1.2em;
+    /* Цвет фона */
     background: #fbfbfb;
+    /* Плавный переход для анимации */
     transition: left 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), padding 0.3s ease, margin 0.3s ease;
+    /* Тень */
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 2.4px 0 rgba(0, 0, 0, 0.08);
 }
 
+/* Эффект наведения на чекбокс */
 .checkbox-wrapper-7 .tgl-ios + .tgl-btn:hover:after {
     will-change: padding;
 }
 
+/* Эффект нажатия на чекбокс */
 .checkbox-wrapper-7 .tgl-ios + .tgl-btn:active {
     box-shadow: inset 0 0 0 2em #e8eae9;
 }
 
+/* Отступ при активации */
 .checkbox-wrapper-7 .tgl-ios + .tgl-btn:active:after {
     padding-right: 0.48em;
 }
 
+/* Цвет фона активного чекбокса */
 .checkbox-wrapper-7 .tgl-ios:checked + .tgl-btn {
     background: #FF6200;
 }
 
+/* Эффект нажатия активного чекбокса */
 .checkbox-wrapper-7 .tgl-ios:checked + .tgl-btn:active {
     box-shadow: none;
 }
 
+/* Отступ при активации активного чекбокса */
 .checkbox-wrapper-7 .tgl-ios:checked + .tgl-btn:active:after {
     margin-left: -0.48em;
 }
 
+/* Скрытие группы мобильного телефона */
 #mobileGroup.hidden {
     visibility: hidden;
 }
 
+/* Стили для кнопок */
 .button {
+    /* Внутренние отступы */
     padding: 16px 42px;
+    /* Скругленные углы */
     border-radius: 3px;
+    /* Тень */
     box-shadow: 0px 0px 12px -2px rgba(0, 0, 0, 0.5);
+    /* Высота строки */
     line-height: 1.25;
+    /* Цвет фона */
     background: #FF6200;
+    /* Убираем подчеркивание */
     text-decoration: none;
+    /* Запрет выделения текста */
     user-select: none;
+    /* Цвет текста */
     color: white;
+    /* Размер шрифта */
     font-size: 16px;
+    /* Шрифт Rubik */
     font-family: 'Rubik', sans-serif;
+    /* Межбуквенный интервал */
     letter-spacing: .08em;
+    /* Преобразование текста в верхний регистр */
     text-transform: uppercase;
+    /* Относительное позиционирование */
     position: relative;
+    /* Плавное изменение фона */
     transition: background-color .6s ease;
+    /* Скрытие переполнения */
     overflow: hidden;
+    /* Убираем рамку */
     border: none;
+    /* Курсор указателя */
     cursor: pointer;
 }
 
+/* Псевдоэлемент для анимации нажатия кнопки */
 .button::after {
+    /* Пустое содержимое */
     content: "";
+    /* Абсолютное позиционирование */
     position: absolute;
+    /* Начальные размеры */
     width: 0;
     height: 0;
+    /* Позиция по центру клика */
     top: 50%;
     left: 50%;
     top: var(--mouse-y);
     left: var(--mouse-x);
+    /* Плоский стиль трансформации */
     transform-style: flat;
+    /* Центрирование круга */
     transform: translate3d(-50%, -50%, 0);
+    /* Полупрозрачный белый фон */
     background: rgba(255, 255, 255, 0.1);
+    /* Круглая форма */
     border-radius: 100%;
+    /* Плавное изменение размеров */
     transition: width .3s ease, height .3s ease;
 }
 
+/* Эффект наведения и фокуса на кнопку */
 .button:focus,
 .button:hover {
+    /* Темный оттенок оранжевого */
     background: #e65c00;
 }
 
+/* Анимация нажатия кнопки */
 .button:active::after {
+    /* Размеры круга при нажатии */
     width: 300px;
     height: 300px;
 }
 
-body {
-    min-height: 100vh;
-    position: relative;
-}
-
+/* Стили для стрелки внизу страницы */
 .arrow {
+    /* Абсолютное позиционирование */
     position: absolute;
+    /* Позиция снизу */
     bottom: 20px;
+    /* Центрирование по горизонтали */
     left: 50%;
     transform: translateX(-50%);
+    /* Размеры стрелки */
     width: 40px;
     height: 40px;
+    /* Изображение стрелки */
     background-image: url('../img/arrow.svg');
+    /* Подгонка изображения */
     background-size: contain;
 }
 
+/* Анимация подпрыгивания стрелки */
 .bounce {
     animation: bounce 2s infinite;
 }
 
+/* Ключевая анимация для стрелки */
 @keyframes bounce {
     0%, 20%, 50%, 80%, 100% {
         transform: translateY(0);
@@ -313,56 +463,89 @@ body {
     }
 }
 
-/* Новые стили для контейнера подписи */
+/* Стили для контейнера сгенерированной подписи */
 .signature-container {
+    /* Фиксированная ширина */
     width: 600px;
+    /* Автоматическая высота */
     height: auto;
+    /* Белый фон */
     background-color: #fff;
+    /* Тонкая рамка */
     border: 1px solid #ccc;
+    /* Отступ сверху */
     margin-top: 20px;
+    /* Горизонтальное выравнивание содержимого */
     display: flex;
     align-items: center;
+    /* Убираем внутренние отступы */
     padding: 0;
+    /* Шрифт для подписи */
     font-family: 'Calibri', sans-serif;
+    /* Размер шрифта */
     font-size: 11.5px;
+    /* Цвет текста */
     color: #000000;
+    /* Межбуквенный интервал */
     letter-spacing: 1px;
 }
 
+/* Стили для содержимого подписи */
 .signature-content {
+    /* Горизонтальное выравнивание */
     display: flex;
     align-items: center;
+    /* Занимает всю ширину */
     width: 100%;
 }
 
+/* Стили для логотипа в подписи */
 .signature-logo {
+    /* Размеры логотипа */
     width: 171px;
     height: 88px;
+    /* Отступы */
     margin: 0 10px;
 }
 
+/* Стили для текстового блока подписи */
 .signature-text {
+    /* Вертикальное расположение строк */
     display: flex;
     flex-direction: column;
+    /* Отступы */
     padding: 0 20px;
 }
 
+/* Стили для строки подписи */
 .signature-line {
+    /* Горизонтальное выравнивание */
     display: flex;
     align-items: center;
-    margin-bottom: 5.6px; /* Уменьшено в 2.5 раза с 14px до 5.6px */
+    /* Отступ снизу */
+    margin-bottom: 5.6px; /* Уменьшено в 2.5 раза с 14px */
 }
 
+/* Убираем отступ для последней строки */
 .signature-line:last-child {
     margin-bottom: 0;
 }
 
+/* Стили для иконок в подписи */
 .signature-icon {
+    /* Размеры иконки */
     width: 10px;
     height: 10px;
+    /* Отступ справа */
     margin-right: 10px;
 }
 
+/* Стили для текста в подписи */
 .signature-text span {
-    line-height: 5.6px; /* Уменьшено в 2.5 раза с 14px до 5.6px */
+    /* Высота строки */
+    line-height: 5.6px; /* Уменьшено в 2.5 раза с 14px */
+}
+/* отступ сверху для кнопки копировать */
+#copyButton {
+    margin-top: 17px; /* чтоб не липла */
 }
