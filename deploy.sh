@@ -7,8 +7,11 @@ NC='\033[0m'
 
 # Имя контейнера и образ
 CONTAINER_NAME="tsgn-container"
-IMAGE_NAME="stsgn-gen"
+IMAGE_NAME="tsgn-gen"
 PORT="8181"
+
+# Git репозиторий
+GITREP="https://github.com/dfyzicka/tSiGen.git"
 
 # Функция для вывода сообщений
 log() {
@@ -58,7 +61,7 @@ fi
 
 # 5. Клонируем репозиторий с GitHub
 log "Клонирование репозитория с GitHub..."
-git clone https://github.com/dfyzicka/sigen.git || error "Не удалось клонировать репозиторий"
+git clone $GITREP || error "Не удалось клонировать репозиторий"
 
 # 6. Переходим в папку sigen
 log "Переход в папку sigen..."
