@@ -11,9 +11,9 @@ IMAGE_NAME="tsgn-gen"
 PORT="8181"
 
 # Git репозиторий
-GITREP="https://github.com/dfyzicka/t$FOLDER.git"
+GITREP="https://github.com/dfyzicka/tSiGen.git"
 #папка репы
-FOLDER="t$FOLDER"
+FOLDER="tSiGen"
 
 # Функция для вывода сообщений
 log() {
