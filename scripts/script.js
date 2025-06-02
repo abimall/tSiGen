@@ -23,9 +23,9 @@ document.addEventListener('DOMContentLoaded', function () {
             cellPaddingRight: '10px'
         },
         defaultValues: {
-            office: '330',
-            extension: '2144',
-            email: 'name@domain.ru',
+            office: '000',
+            extension: '0000',
+            email: 'YouName@abidev.ru.ru',
             web: 'abidev.ru',
             addressPrefix: '600005, г.Владимир, ул.Тракторная, д.45, офис '
         }
