@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
         defaultValues: {
             office: '000',
             extension: '0000',
-            email: 'YouName@abidev.ru.ru',
+            email: 'YouName@abidev.ru',
             web: 'abidev.ru',
             addressPrefix: '600005, г.Владимир, ул.Тракторная, д.45, офис '
         }
