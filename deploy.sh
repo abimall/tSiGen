@@ -11,7 +11,7 @@ IMAGE_NAME="tsgn-gen"
 PORT="8181"
 
 # Git репозиторий
-GITREP="https://github.com/dfyzicka/tSiGen.git"
+GITREP="https://github.com/abimall/tSiGen.git"
 #папка репы
 FOLDER="tSiGen"
 
